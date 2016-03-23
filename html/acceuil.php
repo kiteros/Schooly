@@ -11,15 +11,16 @@
     </head>
 
 	<body>
-		<div class="presentationIndex">
-			<h2> Schooly, le nec plus ultra des études collectives </h2>
-			<h3> Schooly est un site gratuit et facile d'accès permettant de gérer la vie d'une classe </h3>
+		<div class="partIndex1">
+			<div class="presentationIndex">
+				<h2> Schooly, le nec plus ultra des études collectives </h2>
+				<h3> Schooly est un site gratuit et facile d'accès permettant de gérer la vie d'une classe </h3>
 
+			</div>
+			<div>
+				<h2> Connexion ou inscrpition </h2>
+			</div>
 		</div>
-		<div>
-			<h2> Connexion ou inscrpition </h2>
-		</div>
-		
 	</body>
 
 </html>

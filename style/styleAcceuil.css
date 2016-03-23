@@ -1,4 +1,13 @@
-body
+*
 {
-	background-image: url("images/desk-paper.jpg");
+	margin : 0;
+}
+
+.partIndex1
+{
+	padding : 10px;
+	width : 100%;
+	height : 1200px;
+	background-image: url("images/classroom.jpeg");
+	background-size : 100% 1200px;
 }
