@@ -1,13 +1,98 @@
+@font-face {
+
+    font-family: 'CaviarDreams';
+    src: url('font/CaviarDreams/CaviarDreams.ttf') format('truetype');
+
+}
+
 *
 {
 	margin : 0;
+	padding : 0;
+	font-family: 'CaviarDreams';
+}
+
+.coupleIndent
+{
+	margin : auto;
+	background-color: black;
+}
+
+.presentationIndex
+{
+	margin-top : 150px;
+	padding : 15px;
+	color : rgb(250,250,250);
+	width : 40%;
+	height : 800px;
+	float:left;
+	text-align : center;
 }
 
 .partIndex1
 {
-	padding : 10px;
 	width : 100%;
 	height : 1200px;
-	background-image: url("images/classroom.jpeg");
+	background-image: url("images/city2.jpg");
 	background-size : 100% 1200px;
 }
+
+.connect
+{
+	margin-top : 150px;
+	width : 500px;
+	height : 800px;
+	float : right;
+	margin-right : 20%;
+}
+
+
+
+input
+{
+	height : 45px;
+	width : 300px;
+	border : none;
+	border-radius:3px;
+}
+
+/*text au centre de hr*/
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: black;
+}
+
+.present{
+	width:500px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+/*--------------*/
