@@ -1,5 +1,6 @@
 @font-face {
 
+	/*Police utilisée dans tout le site*/
     font-family: 'CaviarDreams';
     src: url('font/CaviarDreams/CaviarDreams.ttf') format('truetype');
 
@@ -12,22 +13,21 @@
 	font-family: 'CaviarDreams';
 }
 
-.coupleIndent
+h1
 {
-	margin : auto;
-	background-color: black;
+	/*Réglage de la taille des titres*/
+	font-size: 3em;
 }
 
-.presentationIndex
+input
 {
-	margin-top : 150px;
-	padding : 15px;
-	color : rgb(250,250,250);
-	width : 40%;
-	height : 800px;
-	float:left;
-	text-align : center;
+	height : 45px;
+	width : 300px;
+	border : none;
+	border-radius:3px;
 }
+
+
 
 .partIndex1
 {
@@ -37,23 +37,115 @@
 	background-size : 100% 1200px;
 }
 
-.connect
+/*Barre de navigation Index*/
+.naviIndex
 {
-	margin-top : 150px;
-	width : 500px;
-	height : 800px;
-	float : right;
-	margin-right : 20%;
+	margin-top : 15px;
+}
+
+a
+{
+	text-decoration: none;
+	color : #DF3A01;
+}
+
+a:hover
+{
+	text-decoration: underline;
+	color : #61210B;
+}
+
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+}
+
+nav li
+{
+    margin-top: 10px;
+    margin-right : 10%;
+    margin-left : 10%;
+}
+
+.buttonConnectIndexBar
+{
+	margin-top : 0px;
+	padding-bottom : 15px;
+}
+
+nav a
+{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	font-size : 1.2em;
+	color : #0A0A2A;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+nav a:hover
+{
+	color : #0B0B61;
+    text-decoration: underline;
+}
+
+/*Bouton Connexion (vert)*/
+.bC
+{
+	width : 300px;
+	height : 50px;
+	background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius:10px;
+}
+.bC:hover
+{
+	background-color: #449A47;
+}
+/*Bouton Inscription petit (Orange)*/
+.bCoPetit
+{
+	width : 150px;
+	height : 50px;
+	background-color: #FF8000;
+    border: none;
+    color: white;
+    padding: 0px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius:10px;
+}
+
+.bCoPetit:hover
+{
+	background-color: #DF7401;
+}
+
+.couple
+{
+	/*Couple présentation / connexion*/
+	color : rgb(250,250,250);
+	text-align : center;
+	padding-top : 220px;
+	margin-left : 15%;
+	margin-right : 15%;
 }
 
 
-
-input
+.connect
 {
-	height : 45px;
-	width : 300px;
-	border : none;
-	border-radius:3px;
+	float : right;
+	display : inline-block;
 }
 
 /*text au centre de hr*/
@@ -96,3 +188,14 @@ input
     margin-left: 15px;
 }
 /*--------------*/
+
+.navigateur
+{
+	width : 50%;
+	margin-left : 10%;
+
+}
+#logo
+{
+	margin-left: 0px;
+}
