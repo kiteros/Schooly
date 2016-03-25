@@ -21,7 +21,8 @@
 		/*Ici les mots de passes sont différents*/
 		header('Location: ../html/inscription.php?error=MdpUnsame');
 
-	}else{
+	}
+	else{
 
 		/*On peut broyer le mot de passe pour le rendre indéchiffrable*/
 
@@ -41,8 +42,9 @@
 			/*Le compte existe déja, retour au menu avec une erreur*/
 			header('Location: ../html/inscription.php?error=CompteExistant');
 
-		}else{
-			
+		}
+		else{
+
 			/*On ajoute toutes les coordonnées de l'utilisateur dans la base de données utilisateur*/
 
 			$addCompte = $bdd->prepare('INSERT INTO `utilisateurs` (`id`, `prenom`, `nom`, `pass`, `email`, `enregistrement`) VALUES (NULL, :prenom, :nom, :mdp, :mail, CURRENT_DATE())');

@@ -6,9 +6,19 @@
 
         <meta charset="utf-8" />
 		<link rel="stylesheet" href="../style/styleAcceuil.css" />
+		<link rel="stylesheet" type="text/css" href="../style/sweetalert.css">
         <title>Schooly</title>
 
     </head>
+
+    <!--Scripts Jquery, sweetAlert, et plus -->
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="assets/js/jquery.complexify.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="../scripts/dist/sweetalert.min.js"></script>
+	<!--/////////////////////////////////-->
+
+   	
 
 	<body>
 		<div class="navigateur">
@@ -29,10 +39,25 @@
 				</nav>
 			</div>
 		</div>
+		<!--gestion des erreurs d'inscription -->
+	   	<?php
+	   		if(isset($_GET['error']) && $_GET['error'] == "MdpUnsame"){
+	   			?>
+	   				<!--Affichage du message d'erreur si les mots de passes sont différents-->
+	   				<script>
+	   					swal({
+	   						title: "Les mots de passe ne correspondent pas",
+	   						text: "Veuillez réesayer, ou vérifier ce que vous avez rempli",
+	   						type: "error",
+	   						confirmButtonText: "Ok"
+	   					});
+	   				</script>
+	   			<?php
+	   		}
+	   	?>
 		<div class="partIndexInscr">
 			<div class="couple">
 				
-
 				<div class="inscript">
 					<div class="strike">
 						<form action="../php/inscriptionBdd.php" method="post">
