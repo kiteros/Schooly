@@ -16,12 +16,12 @@
 				<nav>
 					<ul>
 						<li id="logo"><h2>LOGO</h2></li>
-			            <li><a href="principal.php">Flux</a></li>
-			            <li><a href="account.php">Mon compte</a></li>
-			            <li><a href="stats.php">Stats</a></li>
-			            <li><a href="addMark.php">Ajouter</a></li>
+			            <li><a href="#">Blog</a></li>
+			            <li><a href="#">Aide</a></li>
+			            <li><a href="#">Site</a></li>
+			            <li><a href="#">Conception</a></li>
 			            <li class = "buttonConnectIndexBar">
-			            	<form action="#" method = "post">
+			            	<form action="inscription.php" method = "post">
 			            		<input type="submit" value="Inscription" class="bCoPetit" />
 			            	</form>
 			            </li>
@@ -42,7 +42,8 @@
 					<br/><br/>
 				</div>
 				<h1> Schooly, le nec plus ultra des études collectives </h1>
-				<h2> Schooly est un site gratuit et facile d'accès permettant de gérer la vie d'une classe </h2>
+				<h2> Schooly est un site gratuit et facile d'accès permettant de gérer la vie d'une classe.
+				Il vous permet d'intéragir et de partager avec votre classe pour faciliter votre travail </h2>
 			</div>
 		</div>
 	</body>
