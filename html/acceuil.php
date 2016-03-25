@@ -8,8 +8,16 @@
 		<link rel="stylesheet" href="../style/styleAcceuil.css" />
         <title>Schooly</title>
 
+
     </head>
 
+    <!--Scripts Jquery, sweetAlert, et plus -->
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="assets/js/jquery.complexify.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="../scripts/dist/sweetalert.min.js"></script>
+	<!--/////////////////////////////////-->
+	
 	<body>
 		<div class="navigateur">
 			<div class = "naviIndex">
