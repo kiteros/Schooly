@@ -77,13 +77,20 @@ nav li
     margin-left : 10%;
 }
 
+.nbInscriptions
+{
+	margin-top: 10px;
+    margin-right : 10%;
+    margin-left : 0%;
+}
+
 .buttonConnectIndexBar
 {
 	margin-top : 0px;
 	padding-bottom : 15px;
 }
 
-nav a
+nav a, nav p
 {
 	white-space: nowrap;
     overflow: hidden;
