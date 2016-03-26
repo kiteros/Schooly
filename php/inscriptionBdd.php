@@ -58,11 +58,9 @@
 			/*La personne est inscrite dans la base de donnéees, on peut la connecter automatiquement*/
 
 			/*On va donc selectionner son ID dans la Bdd*/
-			$selectIdPers = $bdd->prepare('SELECT id FROM utilisateurs WHERE nom = :name AND prenom = :prenom AND mdp = :pass AND email = :mail');
+			$selectIdPers = $bdd->prepare('SELECT id FROM utilisateurs WHERE nom = :name AND email = :mail');
 			$selectIdPers->execute(array(
 	    		'name' => $nom,
-	    		'prenom' => $prenom,
-	    		'pass' => $password,
 	    		'mail' => $mail
 	    	));
 
@@ -76,12 +74,62 @@
 			$_SESSION['nom'] = $nom;
 			$_SESSION['mail'] = $mail;
 			$_SESSION['prenom'] = $prenom;
-
-			header('Location: ../html/choixLycee.php');
 		}
 
 		
 
 	}
-
 ?>
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8" />
+		<link rel="stylesheet" href="../style/styleAcceuil.css" />
+        <title>Schooly</title>
+
+    </head>
+
+	<body>
+		<div class="navigateur">
+			<div class = "naviIndex">
+				<nav>
+					<ul>
+						<li id="logo"><h2>LOGO</h2></li>
+			            <li><a href="#">Blog</a></li>
+			            <li><a href="#">Aide</a></li>
+			            <li><a href="#">Site</a></li>
+			            <li><a href="#">Conception</a></li>
+			        </ul>
+				</nav>
+			</div>
+		</div>
+		<?php
+			if(isset($_SESSION['id']) AND isset($_SESSION['prenom'])){
+				/*Ici la personne est vraiment connectée*/
+				echo "<p> Connecté en tant que " . $_SESSION['prenom'] ."</p>";
+
+			}
+			else{
+				/*Ici la persnne n'est pas correctement connectée*/
+				echo "<p> Un erreur d'authentification est survenue </p>";
+			}
+
+			/*Si le bouton decconection est préssé*/
+			if(isset($_POST['deco'])){
+				
+				header('Location: acceuil.php');
+				session_destroy();
+				
+			}
+		?>
+		<form action="#" method="post">
+			<input type="hidden" value="deco" />
+			<input type="submit" value="Déconnexion" />
+		</form>
+	</body>
+
+</html>
