@@ -1,5 +1,6 @@
 <?php
 	/*Connexion à la base de données*/
+	session_start();
 	try
 	{
 		$bdd = new PDO('mysql:host=localhost;dbname=schooly;charset=utf8', 'root', '');
@@ -16,7 +17,7 @@
 	if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $nameMail))
 	{
 		/*NameMail est un mail, on recherche donc un mail dans la Bdd*/
-		$req = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = :prenom AND mdp = :pass');
+		$req = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = :prenom AND pass = :pass');
 
 		$req->execute(array(
 	    	'prenom' => $nameMail,
@@ -27,8 +28,8 @@
 	}
 	else
 	{
-		/*Name Mail est un nom, on recherche doc un nom dans la Bdd*/
-		$req = $bdd->prepare('SELECT * FROM utilisateurs WHERE prenom = :prenom AND mdp = :pass');
+		/*Name Mail est un nom, on recherche don un nom dans la Bdd*/
+		$req = $bdd->prepare('SELECT * FROM utilisateurs WHERE prenom = :prenom AND pass = :pass');
 
 		$req->execute(array(
 	    	'prenom' => $nameMail,
@@ -40,20 +41,36 @@
 
 	}
 
-    
-    echo $resultat['nom'];
-
     if(!$resultat){
-    	//header('Location: ../html/acceuil.php?error=wrongMdp');
+    	session_destroy();
+    	header('Location: ../html/acceuil.php?error=wrongMdp');
     }
     else
     {
-    	session_start();
+    	
         $_SESSION['id'] = $resultat['id'];
 		$_SESSION['nom'] = $resultat['nom'];
 		$_SESSION['mail'] = $resultat['email'];
 		$_SESSION['prenom'] = $resultat['prenom'];
-    	header('Location: ../html/choixLycee.php');
     }
+    /*On peut afficher la page de selection du lycée*/
+    ?>
+    <!DOCTYPE html>
 
+	<html>
+
+	    <head>
+
+	        <meta charset="utf-8" />
+			<link rel="stylesheet" href="../style/styleAcceuil.css" />
+	        <title>Schooly</title>
+
+	    </head>
+
+		<?php
+			include_once('choixLycee.php');
+		?>
+
+	</html>
+	<?php
 ?>

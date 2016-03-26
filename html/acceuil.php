@@ -6,6 +6,7 @@
 
         <meta charset="utf-8" />
 		<link rel="stylesheet" href="../style/styleAcceuil.css" />
+		<link rel="stylesheet" type="text/css" href="../style/sweetalert.css">
         <title>Schooly</title>
 
 
@@ -40,6 +41,23 @@
 				</nav>
 			</div>
 		</div>
+
+		<?php
+	   		if(isset($_GET['error']) && $_GET['error'] == "wrongMdp"){
+	   			?>
+	   				<!--Affichage du message d'erreur si le mot de passe ne correspond pas-->
+	   				<script>
+	   					swal({
+	   						title: "Mauvais mot de passe",
+	   						text: "Veuillez vérifier ce que vous avez entré",
+	   						type: "error",
+	   						confirmButtonText: "Ok"
+	   					});
+	   				</script>
+	   			<?php
+	   		}
+	   	?>
+
 		<div class="partIndex1">
 			<div class="couple">
 				<div class="connect">

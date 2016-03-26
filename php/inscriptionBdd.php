@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	/*Connexion à la base de données*/
 	try
 	{
@@ -19,6 +20,7 @@
 
 	if($password != $password2){
 		/*Ici les mots de passes sont différents*/
+		session_destroy();
 		header('Location: ../html/inscription.php?error=MdpUnsame');
 
 	}
@@ -40,6 +42,7 @@
 
 		if($nbOccur > 0){
 			/*Le compte existe déja, retour au menu avec une erreur*/
+			session_destroy();
 			header('Location: ../html/inscription.php?error=CompteExistant');
 
 		}
@@ -69,7 +72,7 @@
 			$resultat = $selectIdPers->fetch();
 
 	    	/*Puis on créeer une variable de session*/
-			session_start();
+			
 			$_SESSION['id'] = $resultat['id'];
 			$_SESSION['nom'] = $nom;
 			$_SESSION['mail'] = $mail;
@@ -93,43 +96,8 @@
 
     </head>
 
-	<body>
-		<div class="navigateur">
-			<div class = "naviIndex">
-				<nav>
-					<ul>
-						<li id="logo"><h2>LOGO</h2></li>
-			            <li><a href="#">Blog</a></li>
-			            <li><a href="#">Aide</a></li>
-			            <li><a href="#">Site</a></li>
-			            <li><a href="#">Conception</a></li>
-			        </ul>
-				</nav>
-			</div>
-		</div>
-		<?php
-			if(isset($_SESSION['id']) AND isset($_SESSION['prenom'])){
-				/*Ici la personne est vraiment connectée*/
-				echo "<p> Connecté en tant que " . $_SESSION['prenom'] ."</p>";
-
-			}
-			else{
-				/*Ici la persnne n'est pas correctement connectée*/
-				echo "<p> Un erreur d'authentification est survenue </p>";
-			}
-
-			/*Si le bouton decconection est préssé*/
-			if(isset($_POST['deco'])){
-				
-				header('Location: acceuil.php');
-				session_destroy();
-				
-			}
-		?>
-		<form action="#" method="post">
-			<input type="hidden" value="deco" />
-			<input type="submit" value="Déconnexion" />
-		</form>
-	</body>
+	<?php
+		include_once('choixLycee.php');
+	?>
 
 </html>
