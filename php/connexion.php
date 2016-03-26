@@ -64,7 +64,7 @@
 	        <meta charset="utf-8" />
 			<link rel="stylesheet" href="../style/styleAcceuil.css" />
 	        <title>Schooly</title>
-
+	        <script src="../cmap/france-map.js"></script>
 	    </head>
 
 		<?php

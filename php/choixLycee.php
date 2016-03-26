@@ -1,3 +1,4 @@
+	
 	<body>
 		<div class="navigateur">
 			<div class = "naviIndex">
@@ -38,5 +39,6 @@
 				<input type="hidden" value="deco" />
 				<input type="submit" value="Déconnexion" />
 			</form>
+			<iframe src="../franceMap.html" width="50%" height="50%"></iframe> 
 		</div>
 	</body>
