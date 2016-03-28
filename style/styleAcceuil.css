@@ -13,15 +13,21 @@
 	font-family: 'CaviarDreams';
 }
 
-iframe
-{
-	border : none;
-	margin-left : 25%;
-}
 h1
 {
 	/*Réglage de la taille des titres*/
 	font-size: 3em;
+}
+
+.carte
+{
+	margin-left : 25%;
+	float : left;
+}
+
+#tip
+{
+	margin-top : 100px;
 }
 
 input
@@ -33,6 +39,13 @@ input
 	padding-left : 5px;
 }
 
+.lycee
+{
+	text-align : center;
+	background-color: rgb(235, 234, 237);
+	height : 500px;
+}
+
 body
 {
 	background-color: rgb(240,240,240);
@@ -40,7 +53,7 @@ body
 
 .partChoixLycee
 {
-	height : 1200px;
+	height : 800px;
 	background-color: rgb(235, 234, 237);
 }
 
@@ -83,6 +96,13 @@ nav ul
 {
     list-style-type: none;
     display: flex;
+}
+
+#menuCompte
+{
+	position:absolute;
+	top:18px;
+	right:5%;
 }
 
 nav li
@@ -277,4 +297,103 @@ nav a:hover
 #logo
 {
 	margin-left: 0px;
+}
+
+#menu-demo2, #menu-demo2 ul{
+	padding:0;
+	margin:0;
+	list-style:none;
+	text-align:center;
+	width : 150px;
+}
+
+#menu-demo2 li{
+	display:inline-block;
+	position:relative;
+	border-radius:8px 8px 0 0;
+	width : 150px;
+}
+
+#menu-demo2 ul li{
+	display:inherit;
+	border-radius:0;
+}
+
+#menu-demo2 ul li:hover{
+	border-radius:0;
+}
+
+#menu-demo2 ul li:last-child{
+	border-radius:0 0 8px 8px;
+}
+
+#menu-demo2 ul{
+	position:absolute;
+	z-index: 1000;
+	max-height:0;
+	left: 0;
+	right: 0;
+	overflow:hidden;
+	-moz-transition: .8s all .3s;
+	-webkit-transition: .8s all .3s;
+	transition: .8s all .3s;
+}
+
+#menu-demo2 li:hover ul{
+	max-height:15em;
+}
+
+/* background des liens menus */
+#menu-demo2 li:first-child{
+	background-color: #FA8258;
+	background-image:-webkit-linear-gradient(top, #FA8258 0%, #FA8258  100%);
+	background-image:linear-gradient(to bottom, #FA8258 0%, #FA8258 100%);
+}
+
+/* background des liens sous menus */
+#menu-demo2 li:first-child li{
+	background:#F7BE81;
+}
+
+/* background des liens menus et sous menus au survol */
+#menu-demo2 li:first-child:hover, #menu-demo2 li:first-child li:hover{
+	background:#FA8258;
+}
+
+#menu-demo2 li:nth-child(2):hover, #menu-demo2 li:nth-child(2) li:hover{
+	background:#FA8258;
+}
+
+#menu-demo2 li:nth-child(3):hover, #menu-demo2 li:nth-child(3) li:hover{
+	background:#FA8258;
+}
+
+#menu-demo2 li:last-child:hover, #menu-demo2 li:last-child li:hover{
+	background:#FA8258;
+}
+/* les a href */
+#menu-demo2 a{
+	text-decoration:none;
+	display:block;
+	padding:8px 32px;
+	color:#fff;
+	font-family:arial;
+}
+
+#menu-demo2 ul a{
+	padding:8px 0;
+}
+
+#menu-demo2 li:hover li a{
+	color:#fff;
+	text-transform:inherit;
+}
+
+#menu-demo2 li:hover a, #menu-demo2 li li:hover a{
+	color:#000;
+}
+
+#deconnect
+{
+	display: none;
 }

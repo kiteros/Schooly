@@ -50,13 +50,15 @@
 
 			/*On ajoute toutes les coordonnées de l'utilisateur dans la base de données utilisateur*/
 
-			$addCompte = $bdd->prepare('INSERT INTO `utilisateurs` (`id`, `prenom`, `nom`, `pass`, `email`, `enregistrement`) VALUES (NULL, :prenom, :nom, :mdp, :mail, CURRENT_DATE())');
+			$addCompte = $bdd->prepare('INSERT INTO `utilisateurs` (`id`, `prenom`, `nom`, `pass`, `email`, `enregistrement`, `lycee`, `classe`) VALUES (NULL, :prenom, :nom, :mdp, :mail, CURRENT_DATE(), :lyc, :clas)');
 
 			$addCompte->execute(array(
 				'prenom' => $prenom,
 				'nom' => $nom,
 				'mdp' => $password,
-				'mail' => $mail
+				'mail' => $mail,
+				'lyc' => 'inconnu',
+				'clas' => 'inconnu'
 			));
 			/*La personne est inscrite dans la base de donnéees, on peut la connecter automatiquement*/
 
@@ -77,27 +79,11 @@
 			$_SESSION['nom'] = $nom;
 			$_SESSION['mail'] = $mail;
 			$_SESSION['prenom'] = $prenom;
+
+			header('Location: choixLycee.php');
 		}
 
 		
 
 	}
 ?>
-
-<!DOCTYPE html>
-
-<html>
-
-    <head>
-
-        <meta charset="utf-8" />
-		<link rel="stylesheet" href="../style/styleAcceuil.css" />
-        <title>Schooly</title>
-
-    </head>
-
-	<?php
-		include_once('choixLycee.php');
-	?>
-
-</html>

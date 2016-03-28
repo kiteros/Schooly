@@ -1,6 +1,6 @@
 <?php
 	/*Connexion à la base de données*/
-	session_start();
+	
 	try
 	{
 		$bdd = new PDO('mysql:host=localhost;dbname=schooly;charset=utf8', 'root', '');
@@ -42,35 +42,23 @@
 	}
 
     if(!$resultat){
-    	session_destroy();
     	header('Location: ../html/acceuil.php?error=wrongMdp');
     }
     else
     {
-    	
+    	session_start();
         $_SESSION['id'] = $resultat['id'];
 		$_SESSION['nom'] = $resultat['nom'];
 		$_SESSION['mail'] = $resultat['email'];
 		$_SESSION['prenom'] = $resultat['prenom'];
+
+		if($resultat['lycee'] == 'inconnu'){
+			header('Location: choixLycee.php');
+		}else{
+			header('Location: ../html/menuSession/menu.php');
+		}
+		
     }
     /*On peut afficher la page de selection du lycée*/
-    ?>
-    <!DOCTYPE html>
-
-	<html>
-
-	    <head>
-
-	        <meta charset="utf-8" />
-			<link rel="stylesheet" href="../style/styleAcceuil.css" />
-	        <title>Schooly</title>
-	        <script src="../cmap/france-map.js"></script>
-	    </head>
-
-		<?php
-			include_once('choixLycee.php');
-		?>
-
-	</html>
-	<?php
+    
 ?>
