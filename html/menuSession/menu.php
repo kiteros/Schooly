@@ -44,6 +44,7 @@
 
 		$resultatId = $selectIdLyc->fetch();
 		$_SESSION['idLycee'] = $resultatId['id'];
+		$_SESSION['monLycee'] = $monLycee;
 		$idLycee = $resultatId['id'];
 
 	?>
@@ -71,9 +72,9 @@
 				</li>
 				<li><a href="#">Classe</a>
 					<ul>
-						<li><a href="#">Fil d'actualité</a></li>
+						<li><a href="filActu.php">Fil d'actualité</a></li>
 						<li><a href="#">Partage</a></li>
-						<li><a href="#">Conversations</a></li>
+						<li><a href="conv.php">Conversations</a></li>
 						<li><a href="#">Contrôles</a></li>
 						<li><a href="#">Notes</a></li>
 						<li><a href="#">Classements</a></li>
@@ -191,8 +192,8 @@
 						echo '<h3> Classe ' . $donnees['classTag'] . ' de l\'établissement ' . $monLycee . ' ,avec ' . $donnees['nbPers'] . ' élèves</h3>';
 						?>
 								<br/>
-								<form action="#" method="post">
-									<input type="hidden" value="<?php echo $donnees['classTag'] ?> " name="classeRejoin" />
+								<form action="#I" method="post">
+									<input type="hidden" value=<?php echo $donnees['classTag']; ?> name="classeRejoin" />
 									<input type="submit" value="Rejoindre" name="joinClass" class="bC"/>
 								</form>
 								<br/><hr/><br/>
@@ -204,15 +205,34 @@
 				if(isset($_POST['classeRejoin'])){
 					$UpClass = $_POST['classeRejoin'];
 					/*On update la classe de l'utilisateur*/
-					$UpClass = $bdd->prepare('UPDATE utilisateurs SET classe = :cl WHERE id = :idPers');
+					$UpClass2 = $bdd->prepare('UPDATE utilisateurs SET classe = :cl WHERE id = :idPers');
 
 					$UpClassString = strval($UpClass);
-					$UpClass->execute(array(
+
+					$UpClass2->execute(array(
 						'cl' =>  $UpClassString,
 						'idPers' => $_SESSION['id']
 					));
 					/*Puis on ajoute sa classe dans une variable de session au cas ou*/
 					$_SESSION['classe'] = $UpClass;
+
+					/*Puis on va incrémenter le nombre de personnes dans la classe*/
+
+					$nbElev = $bdd->prepare('SELECT nbPers FROM classe WHERE classTag = :tag');
+
+					$nbElev->execute(array(
+						'tag' =>  $UpClassString
+					));
+
+					$done = $nbElev->fetch();
+					$incr = intval($done['nbPers']) + 1;//On l'incrémente
+
+					$UpClass3 = $bdd->prepare('UPDATE classe SET nbPers = :nb WHERE classTag = :tag');
+
+					$UpClass3->execute(array(
+						'nb' =>  $incr,
+						'tag' => $UpClassString
+					));
 				}
 
 				/*Ici on ajoute une classe*/

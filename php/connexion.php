@@ -51,10 +51,15 @@
 		$_SESSION['nom'] = $resultat['nom'];
 		$_SESSION['mail'] = $resultat['email'];
 		$_SESSION['prenom'] = $resultat['prenom'];
+		$_SESSION['monLycee'] = $resultat['lycee'];
+		$_SESSION['classe'] = $resultat['classe'];
 
 		if($resultat['lycee'] == 'inconnu'){
 			header('Location: choixLycee.php');
-		}else{
+		}else if($resultat['lycee'] != ''){
+			header('Location: ../html/menuSession/filActu.php');
+		}
+		else{
 			header('Location: ../html/menuSession/menu.php');
 		}
 		
